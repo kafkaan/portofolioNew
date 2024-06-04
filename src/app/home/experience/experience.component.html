@@ -1,0 +1,76 @@
+<div class="experience__block" id="experience">
+  <div class="experience__block-title-container">
+    <h2 class="experience__block-title">Experience</h2>
+    <div class="color-bar">
+      <div class="yellow-bar"></div>
+      <div class="violette-bar"></div>
+    </div>
+  </div>
+
+  <div class="choices-navigation">
+    <div
+      class="choices-navigation__item"
+      [ngClass]="{
+        active: navigationChoice === 'experience'
+      }"
+    >
+      <button
+        class="choices-navigation__item-link"
+        (click)="setNavigationChoice('experience')"
+      >
+        Experience
+      </button>
+    </div>
+    <div
+      class="choices-navigation__item"
+      [ngClass]="{
+        active: navigationChoice === 'education'
+      }"
+    >
+      <button
+        class="choices-navigation__item-link"
+        (click)="setNavigationChoice('education')"
+      >
+        Education
+      </button>
+    </div>
+  </div>
+
+  <!----------------------- Experience ---------------------------->
+  <div class="experience-container">
+    <div class="line-between-cards">
+      @for (experience of getListFromChoice() ; track $index) {
+      <div
+        class="circle-in-line"
+        [ngClass]="{
+          circleNext: $index > 0,
+        }"
+      >
+        <div class="circle-in-circle">
+          <img src="../../../assets/circle.png" />
+        </div>
+      </div>
+
+      }
+    </div>
+    @for (experience of getListFromChoice() ; track $index) {
+    <div
+      class="experience-card"
+      [style.margin-top.px]="$index % 2 !== 0 ? 0 : 0"
+      [ngClass]="{
+        'impaire-card': $index % 2 !== 0,
+        'paire-card': $index % 2 === 0
+      }"
+    >
+      <div class="experience-card__title">
+        <h6>{{ experience.title }}</h6>
+      </div>
+      <p>{{ experience.date }}</p>
+
+      <div class="experience-card__description">
+        <p>{{ experience.description }}</p>
+      </div>
+    </div>
+    }
+  </div>
+</div>

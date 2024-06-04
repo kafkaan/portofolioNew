@@ -1,0 +1,29 @@
+<nav class="nav__block">
+  <a href="#contact" class="nav__item">Contact</a>
+  <a href="#experience" class="nav__item">Experience</a>
+  <a href="#about" class="nav__item">About</a>
+  <a href="#projects" class="nav__item">Projects</a>
+</nav>
+
+<nav class="nav__block-mobile">
+  <div class="nav__item-mobile-burger" (click)="toggleMenu()">
+    <fa-icon
+      [icon]="showMenu ? faTimes : faBars"
+      class="fa-icon"
+      [styles]="{ color: 'white' }"
+      class="fa-icon"
+      size="1x"
+    ></fa-icon>
+  </div>
+
+  <div
+    class="nav__item-mobile"
+    [ngClass]="{ open: showMenu, closed: !showMenu }"
+    (click)="toggleMenu()"
+  >
+    <a href="#contact" class="nav__item">Contact</a>
+    <a href="#experience" class="nav__item">Experience</a>
+    <a href="#about" class="nav__item">About</a>
+    <a href="#projects" class="nav__item">Projects</a>
+  </div>
+</nav>

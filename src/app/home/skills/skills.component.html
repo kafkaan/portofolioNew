@@ -1,0 +1,37 @@
+<div class="skills__block">
+  <div class="skills__block-title-container">
+    <h2 class="skills__block-title">Skills</h2>
+    <div class="color-bar">
+      <div class="yellow-bar"></div>
+      <div class="violette-bar"></div>
+    </div>
+  </div>
+
+  <div class="skills-navigation">
+    <div class="skills-navigation__item">
+      <button class="skills-navigation__item-link">Hard Skills</button>
+    </div>
+  </div>
+
+  <div class="skills_container-block">
+    <div class="icon-container" (click)="prevSkill()">
+      <fa-icon
+        [icon]="faCaretLeft"
+        [styles]="{ color: '#7733ff' }"
+        class="fa-icon"
+
+      ></fa-icon>
+    </div>
+    <div class="skill_round-card">
+      <img [src]="getSkillImage()" />
+    </div>
+
+    <div class="icon-container" (click)="nextSkill()">
+      <fa-icon
+        [icon]="faCaretRight"
+        class="fa-icon"
+        [styles]="{ color: '#7733ff' }"
+      ></fa-icon>
+    </div>
+  </div>
+</div>

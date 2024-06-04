@@ -1,0 +1,118 @@
+.nav__block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 0 10%;
+
+  .nav__item {
+    width: 148px;
+    height: 60px;
+    display: flex;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    border-radius: 24px;
+    background-color: var(--dark-primaire);
+    box-shadow: var(--shadow-2);
+    stroke: var(--stroke);
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+    font-size: var(--font-size-p);
+    column-rule: white;
+
+    &:hover,
+    &:active {
+      color: gray; // Ou toute autre couleur que vous voulez
+    }
+
+    @media (min-width: 320px) and (max-width: 768px) {
+      font-size: var(--font-size-p-portable);
+    }
+
+    &:active {
+      box-shadow: var(--shadow-2-pressed);
+    }
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    gap: 2rem;
+  }
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.nav__block-mobile {
+  display: none;
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    display: block;
+    margin-top: 1rem;
+
+    .nav__item-mobile {
+      transition: opacity 0.3s ease-in-out; // Ajoutez cette ligne
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--dark-primaire);
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      &.open {
+        opacity: 1;
+      }
+
+      &.closed {
+        opacity: 0;
+        z-index: -999;
+      }
+    }
+
+    .nav__item-mobile-burger {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+
+      background-color: var(--violet);
+      display: flex;
+      font-weight: 700;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.5s ease-out;
+      cursor: pointer;
+      font-size: var(--font-size-p);
+      column-rule: white;
+      position: absolute;
+      z-index: 2;
+      top: 3rem;
+      right: 0;
+      left: 80%;
+      right: 0;
+      &:hover,
+      &:active {
+        color: gray; // Ou toute autre couleur que vous voulez
+      }
+
+      &:active {
+        box-shadow: var(--shadow-2-pressed);
+      }
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}

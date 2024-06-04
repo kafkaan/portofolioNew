@@ -1,0 +1,111 @@
+<div id="projects" class="projects__block">
+  <div class="projects__block-title-container">
+    <h2 class="projects__block-title">Projects</h2>
+    <div class="color-bar">
+      <div class="yellow-bar"></div>
+      <div class="violette-bar"></div>
+    </div>
+  </div>
+
+  <div class="choices-navigation">
+    <div
+      class="choices-navigation__item"
+      [ngClass]="{
+        active: projectNavigationChoice === 'Frontend'
+      }"
+    >
+      <button
+        class="choices-navigation__item-link"
+        (click)="changeProjectNavigationChoice('Frontend')"
+      >
+        Frontend
+      </button>
+    </div>
+    <div
+      class="choices-navigation__item"
+      [ngClass]="{
+        active: projectNavigationChoice === 'Backend'
+      }"
+    >
+      <button
+        class="choices-navigation__item-link"
+        (click)="changeProjectNavigationChoice('Backend')"
+      >
+        Backend
+      </button>
+    </div>
+    <div
+      class="choices-navigation__item"
+      [ngClass]="{
+        active: projectNavigationChoice === 'Cybersecurity'
+      }"
+    >
+      <button
+        class="choices-navigation__item-link"
+        (click)="changeProjectNavigationChoice('Cybersecurity')"
+      >
+        Cybersecurity
+      </button>
+    </div>
+  </div>
+
+  <div class="projects-container">
+    @switch (projectNavigationChoice) { @case ('Frontend') {
+    <div class="project-item__container">
+      <div class="choices-project-to-view-images">
+        @for (project of getProjects() ; track $index) {
+        <div
+          class="project-item-image"
+          (click)="choiceProject(project.title)"
+          [style.backgroundImage]="'url(' + project.image + ')'"
+        ></div>
+        }
+      </div>
+
+      <div class="projet-choiced__card">
+        <img src="{{ projectChoiced!.image }}" alt="project-image" />
+        <h3 class="project-title">{{ projectChoiced!.title }}</h3>
+        <p class="project-p">{{ projectChoiced!.description }}</p>
+      </div>
+    </div>
+    } @case ('Backend') {
+    <div class="project-item__container">
+      <div class="choices-project-to-view-images">
+        @for (project of getProjects() ; track $index) {
+        <div
+          class="project-item-image"
+          (click)="choiceProject(project.title)"
+          [style.backgroundImage]="'url(' + project.image + ')'"
+        ></div>
+        }
+      </div>
+
+      <div class="projet-choiced__card">
+        <img src="{{ projectChoiced!.image }}" alt="project-image" />
+        <h3 class="project-title">{{ projectChoiced!.title }}</h3>
+        <p class="project-p">{{ projectChoiced!.description }}</p>
+      </div>
+    </div>
+    } @case ('Cybersecurity') {
+    <div class="project-item__container">
+      <div class="choices-project-to-view-images">
+        @for (project of getProjects() ; track $index) {
+        <div
+          class="project-item-image"
+          (click)="choiceProject(project.title)"
+          [style.backgroundImage]="'url(' + project.image + ')'"
+        ></div>
+        }
+      </div>
+
+      <div class="projet-choiced__card">
+        <img src="{{ projectChoiced!.image }}" alt="project-image" />
+        <h3 class="project-title">{{ projectChoiced!.title }}</h3>
+        <p class="project-p">{{ projectChoiced!.description }}</p>
+      </div>
+    </div>
+    } @default {
+    <div>Default Projects</div>
+    } }
+  </div>
+</div>
